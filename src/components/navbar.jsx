@@ -42,7 +42,7 @@ export default function Navbar() {
           <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-teal-400 to-blue-700 flex items-center justify-center text-white">
             <BookOpenIcon className="w-5 h-5" />
           </div>
-          <span className="text-lg font-semibold text-blue-900">ScholarHub</span>
+          <span className="text-lg font-semibold text-blue-900">ITERA Portalship</span>
         </div>
 
         {/* Hamburger (Mobile) */}

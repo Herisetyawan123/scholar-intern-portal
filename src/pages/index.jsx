@@ -5,6 +5,7 @@ import FeaturedScholarships from '../components/index/featured-scholarship-secti
 import HeroScholarshipSection from '../components/index/hero-scholarship-section';
 import FeaturedInternshipsSection from '../components/index/featured-internship-section';
 import HeroInternshipSection from '../components/index/hero-internship-section';
+// import useHomeData from '../hooks/useHomeData';
 
 function IndexPage() {
   return (
