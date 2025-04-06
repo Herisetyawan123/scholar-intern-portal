@@ -1,5 +1,5 @@
-import { useState } from "react";
 import ScholarCard from "../index/ui/scholar-card";
+import useFilterData from "../../hooks/use-filter-data";
 
 const scholarships = [
   {
@@ -29,11 +29,7 @@ const scholarships = [
 ];
 
 export default function ScholarshipList() {
-  const [search, setSearch] = useState("");
-
-  const filtered = scholarships.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const { filtered, handleFilterChange, search } = useFilterData(scholarships, "name");
 
   return (
     <div className="p-4 mx-8 md:mx-24 lg:mx-32 xl:mx-48">
@@ -42,7 +38,7 @@ export default function ScholarshipList() {
         placeholder="Search scholarships..."
         className="w-full mb-6 p-3 rounded-lg border border-gray-300 shadow-sm"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={handleFilterChange}
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item) => (

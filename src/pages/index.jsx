@@ -5,18 +5,21 @@ import FeaturedScholarships from '../components/index/featured-scholarship-secti
 import HeroScholarshipSection from '../components/index/hero-scholarship-section';
 import FeaturedInternshipsSection from '../components/index/featured-internship-section';
 import HeroInternshipSection from '../components/index/hero-internship-section';
-// import useHomeData from '../hooks/useHomeData';
+import HomeProvider from '../state-management/home/home-provider';
+// import useHomeData from '../hooks/use-fetch-home-data';
+// import LoadingSpinner from '../components/loading';
 
 function IndexPage() {
+
   return (
-    <div>
+    <HomeProvider>
       <HeroSection />
       <StatsSection />
       <FeaturedScholarships />
       <HeroScholarshipSection />
       <FeaturedInternshipsSection />
       <HeroInternshipSection />
-    </div>
+    </HomeProvider>
   );
 }
 

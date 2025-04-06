@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import GambarKopi from "../../assets/gambar-kopi.jpg"; // Ganti dengan path gambar yang sesuai
+import GambarKopi from "../../assets/gambar-kopi.jpg";
 
 export default function HeroScholarshipSection() {
   return (

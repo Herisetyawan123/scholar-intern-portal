@@ -1,5 +1,5 @@
-import { useState } from "react";
 import InternCard from "../index/ui/intern-card";
+import useFilterData from "../../hooks/use-filter-data";
 
 const internships = [
   {
@@ -42,11 +42,7 @@ const internships = [
 ];
 
 export default function InternshipList() {
-  const [search, setSearch] = useState("");
-
-  const filtered = internships.filter((item) =>
-    item.position.toLowerCase().includes(search.toLowerCase())
-  );
+  const { filtered, handleFilterChange, search } = useFilterData(internships, "position");
 
   return (
     <div className="p-4 mx-8 md:mx-24 lg:mx-32 xl:mx-48">
@@ -55,7 +51,7 @@ export default function InternshipList() {
         placeholder="Search internships..."
         className="w-full mb-6 p-3 rounded-lg border border-gray-300 shadow-sm"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={handleFilterChange}
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item) => (

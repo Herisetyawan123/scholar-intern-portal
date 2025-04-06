@@ -1,28 +1,11 @@
 import { CalendarIcon, ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import ScholarCard from "./ui/scholar-card";
-
-const scholarships = [
-  {
-    title: "PT Pertamina Foundation Scholarship",
-    deadline: "Jun 10, 2025",
-    image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1171&auto=format&fit=crop", // Ganti sesuai path gambar kamu
-    featured: true,
-  },
-  {
-    title: "Telkom Indonesia Scholarship",
-    deadline: "May 20, 2025",
-    image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1171&auto=format&fit=crop",
-    featured: true,
-  },
-  {
-    title: "LPDP Scholarship",
-    deadline: "Aug 01, 2025",
-    image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1171&auto=format&fit=crop",
-    featured: true,
-  },
-];
+import { useContext } from "react";
+import HomeContext from "../../state-management/home/home-context";
 
 export default function FeaturedScholarshipsSection() {
+  const data = useContext(HomeContext);
+
   return (
     <section className="py-16 bg-[#f9fafb]">
       <div className="max-w-6xl mx-auto px-4">
@@ -36,8 +19,8 @@ export default function FeaturedScholarshipsSection() {
           </a>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {scholarships.map((item, index) => (
-            <ScholarCard key={index} image={item.image} title={item.title} deadline={item.deadline} featured={item.featured} />
+          {data.scholarships.map((item, index) => (
+            <ScholarCard key={index} id={item.id} image={item.thumbnail} title={item.name} deadline={item.deadline} featured={item.featured} />
           ))}
         </div>
       </div>

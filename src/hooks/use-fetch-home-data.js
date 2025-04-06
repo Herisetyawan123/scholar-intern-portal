@@ -1,14 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function useHomeData() {
   const [scholarships, setScholarships] = useState([]);
   const [internships, setInternships] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // const didFetch = useRef(false);
 
   useEffect(() => {
+    // // katanya biar ga error
+    // if (didFetch.current) return;
+    // didFetch.current = true;
+
     const controller = new AbortController();
     const signal = controller.signal;
+
     const fetchHomeData = async () => {
       try {
         setLoading(true);

@@ -8,7 +8,7 @@ import { ClockIcon } from "@heroicons/react/16/solid";
 const InternCard = ({ internship, featured = false }) => {
   const {
     id,
-    position,
+    title,
     company,
     location,
     deadline,
@@ -16,6 +16,7 @@ const InternCard = ({ internship, featured = false }) => {
     image,
   } = internship;
 
+  const durationIntern = duration || "Not specified";
   const internshipImage =
     image ||
     "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=1776&auto=format&fit=crop";
@@ -44,7 +45,7 @@ const InternCard = ({ internship, featured = false }) => {
       <div className="relative h-44">
         <img
           src={internshipImage}
-          alt={position}
+          alt={title}
           className="w-full h-full object-cover"
         />
         {featured && (
@@ -57,7 +58,7 @@ const InternCard = ({ internship, featured = false }) => {
       {/* Content */}
       <div className="p-4">
         <h3 className="text-lg font-semibold leading-snug line-clamp-2">
-          {position}
+          {title}
         </h3>
         <p className="text-sm text-gray-500 mb-2">{company}</p>
 
@@ -68,7 +69,7 @@ const InternCard = ({ internship, featured = false }) => {
 
         <div className="flex items-center text-sm text-gray-500 mb-1">
           <ClockIcon className="w-4 h-4 mr-1 text-teal-600" />
-          {duration}
+          {durationIntern}
         </div>
 
         <div className="flex items-center text-sm text-gray-500 mb-4">

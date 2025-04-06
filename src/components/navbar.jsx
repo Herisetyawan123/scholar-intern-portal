@@ -7,7 +7,7 @@ import {
   Bars3Icon,
   XMarkIcon
 } from "@heroicons/react/24/outline";
-import useNavbarToggle from "../hooks/useNavbarToggle";
+import useNavbarToggle from "../hooks/use-navbar-toggle";
 
 const navItems = [
   { name: "Home", path: "/", icon: HomeIcon },
