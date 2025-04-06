@@ -13,12 +13,12 @@ const InternCard = ({ internship, featured = false }) => {
     location,
     deadline,
     duration,
-    image,
+    thumbnail,
   } = internship;
 
   const durationIntern = duration || "Not specified";
   const internshipImage =
-    image ||
+    thumbnail ||
     "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=1776&auto=format&fit=crop";
 
   let formattedDeadline = deadline;

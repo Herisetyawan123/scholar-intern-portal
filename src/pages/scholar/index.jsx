@@ -1,12 +1,13 @@
 import React from 'react';
 import HeroSection from '../../components/scholarship/hero-section';
 import ScholarshipList from '../../components/scholarship/scholar-list-section';
+import ScholarshipProvider from '../../state-management/scholarships/scholarships-provider';
 
 function ScholarPage() {
-  return <div>
+  return <ScholarshipProvider>
     <HeroSection />
     <ScholarshipList />
-  </div>;
+  </ScholarshipProvider>;
 }
 
 export default ScholarPage;
