@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   HomeIcon,
@@ -8,16 +7,32 @@ import {
   Bars3Icon,
   XMarkIcon
 } from "@heroicons/react/24/outline";
+import useNavbarToggle from "../hooks/useNavbarToggle";
+
+const navItems = [
+  { name: "Home", path: "/", icon: HomeIcon },
+  { name: "Scholarships", path: "/scholarships", icon: BookOpenIcon },
+  { name: "Internships", path: "/internships", icon: GiftIcon },
+  { name: "Not found", path: "/aasfdw4trvdcv", icon: Squares2X2Icon },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, toggle, close } = useNavbarToggle();
 
-  const navItems = [
-    { name: "Home", path: "/", icon: <HomeIcon className="w-5 h-5" /> },
-    { name: "Scholarships", path: "/scholarships", icon: <BookOpenIcon className="w-5 h-5" /> },
-    { name: "Internships", path: "/internships", icon: <GiftIcon className="w-5 h-5" /> },
-    { name: "Not found", path: "/aasfdw4trvdcv", icon: <Squares2X2Icon className="w-5 h-5" /> },
-  ];
+  const renderNavLink = (item) => (
+    <NavLink
+      key={item.name}
+      to={item.path}
+      onClick={close}
+      className={({ isActive }) =>
+        `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition ${isActive ? "bg-blue-100 text-blue-700" : "text-gray-700 hover:text-blue-600"
+        }`
+      }
+    >
+      <item.icon className="w-5 h-5" />
+      {item.name}
+    </NavLink>
+  );
 
   return (
     <header className="bg-white shadow">
@@ -30,28 +45,25 @@ export default function Navbar() {
           <span className="text-lg font-semibold text-blue-900">ScholarHub</span>
         </div>
 
-        {/* Hamburger Button (Mobile only) */}
+        {/* Hamburger (Mobile) */}
         <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-600 hover:text-blue-600 focus:outline-none"
-          >
+          <button onClick={toggle} className="text-gray-600 hover:text-blue-600 cursor-pointer transition">
             {isOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Nav Links (Desktop) */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex gap-6 items-center">
           {navItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition ${isActive ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600"
+                `flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition ${isActive ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600"
                 }`
               }
             >
-              {item.icon}
+              <item.icon className="w-5 h-5" />
               {item.name}
             </NavLink>
           ))}
@@ -61,20 +73,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pb-3 space-y-2">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.name}
-              to={item.path}
-              onClick={() => setIsOpen(false)} // close menu on click
-              className={({ isActive }) =>
-                `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition ${isActive ? "bg-blue-100 text-blue-700" : "text-gray-700 hover:text-blue-600"
-                }`
-              }
-            >
-              {item.icon}
-              {item.name}
-            </NavLink>
-          ))}
+          {navItems.map(renderNavLink)}
         </div>
       )}
     </header>

@@ -71,10 +71,10 @@ const InternCard = ({ internship, featured = false }) => {
           {duration}
         </div>
 
-        <divIcon className="flex items-center text-sm text-gray-500 mb-4">
+        <div className="flex items-center text-sm text-gray-500 mb-4">
           <CalendarIcon className="w-4 h-4 mr-1 text-teal-600" />
           Deadline: {formattedDeadline}
-        </divIcon>
+        </div>
 
         <div className="flex justify-between items-center gap-2">
           <a
