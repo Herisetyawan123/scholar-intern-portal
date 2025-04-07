@@ -8,15 +8,11 @@ import {
 import NotFound from "../errors/404";
 import { useDetailInternship } from "../../hooks/use-fetch-internships";
 import LoadingSpinner from "../../components/loading";
-import { useEffect } from "react";
 
 
 export default function InternshipDetail() {
   const { internship, loading } = useDetailInternship();
 
-  useEffect(() => {
-    console.log(internship)
-  }, [internship]);
   if (loading && internship == null) {
     return (
       <LoadingSpinner />

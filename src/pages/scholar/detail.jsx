@@ -1,26 +1,30 @@
 import { CalendarDaysIcon, LinkIcon, ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+// import NotFound from "../errors/404";
+import { useDetailScholarship } from "../../hooks/use-fetch-scholarships";
+import LoadingSpinner from "../../components/loading";
 
-const scholarships = [{
-  id: 1,
-  name: "ITERA Achievement Scholarship",
-  description: "Scholarship for students with academic or non-academic achievements at ITERA.",
-  deadline: "2025-05-10",
-  requirements: [
-    "Minimum GPA 3.5",
-    "Recommendation letter from academic advisor",
-    "Active in campus activities"
-  ],
-  registration_link: "https://beasiswa.itera.ac.id/prestasi",
-  thumbnail: "https://picsum.photos/seed/beasiswa1/400/250",
-  created_at: "2025-04-06T12:00:00Z"
-}];
+// const scholarships = [{
+//   id: 1,
+//   name: "ITERA Achievement Scholarship",
+//   description: "Scholarship for students with academic or non-academic achievements at ITERA.",
+//   deadline: "2025-05-10",
+//   requirements: [
+//     "Minimum GPA 3.5",
+//     "Recommendation letter from academic advisor",
+//     "Active in campus activities"
+//   ],
+//   registration_link: "https://beasiswa.itera.ac.id/prestasi",
+//   thumbnail: "https://picsum.photos/seed/beasiswa1/400/250",
+//   created_at: "2025-04-06T12:00:00Z"
+// }];
 export default function ScholarshipDetailPage() {
-  const { id } = useParams();
-  const scholarship = scholarships.find((item) => item.id === Number(id));
+  const { scholarship, loading } = useDetailScholarship();
 
-  if (!scholarship) {
-    return <NotFound />;
+  if (loading && scholarship == null) {
+    return (
+      <LoadingSpinner />
+    );
   }
 
   return (
