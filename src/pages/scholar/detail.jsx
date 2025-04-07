@@ -65,7 +65,7 @@ export default function ScholarshipDetailPage() {
 
       {/* Registration Link */}
       <a
-        to={`mailto:admin@beasiswa.com?subject=Daftar Beasiswa: ${encodeURIComponent(scholarship.title)}&body=Halo, saya tertarik untuk mendaftar beasiswa "${scholarship.title}". Mohon informasinya lebih lanjut.`}
+        href={`mailto:admin@beasiswa.com?subject=Daftar Beasiswa: ${encodeURIComponent(scholarship.title)}&body=Halo, saya tertarik untuk mendaftar beasiswa "${scholarship.title}". Mohon informasinya lebih lanjut.`}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg transition"
