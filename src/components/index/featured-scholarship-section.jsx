@@ -20,7 +20,7 @@ export default function FeaturedScholarshipsSection() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {data.scholarships.map((item, index) => (
-            <ScholarCard key={index} id={item.id} image={item.thumbnail} title={item.name} deadline={item.deadline} featured={item.featured} />
+            <ScholarCard key={index} id={item.id} image={item.thumbnail} title={item.title} deadline={item.deadline} featured={item.featured} />
           ))}
         </div>
       </div>

@@ -1,7 +1,8 @@
 import React from 'react'
 import { CalendarIcon, ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import { Link } from 'react-router-dom';
 
-export default function ScholarCard({ image, title, deadline, featured }) {
+export default function ScholarCard({ id, image, title, deadline, featured }) {
   return (
     <div
       className="bg-white border border-blue-200 rounded-xl shadow-sm overflow-hidden hover:scale-105 transition duration-300"
@@ -25,9 +26,9 @@ export default function ScholarCard({ image, title, deadline, featured }) {
           Deadline: {deadline}
         </div>
         <div className="flex justify-between">
-          <button className="border cursor-pointer px-4 py-1.5 font-semibold rounded-lg text-sm bg-[#f8fafc] hover:bg-gray-100">
+          <Link to={'/scholarships/' + id} className="border cursor-pointer px-4 py-1.5 font-semibold rounded-lg text-sm bg-[#f8fafc] hover:bg-gray-100">
             View Details
-          </button>
+          </Link>
           <button className="bg-blue-600 cursor-pointer font-bold text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 flex items-center gap-1">
             Apply <ArrowUpRightIcon className="w-4 h-4" />
           </button>

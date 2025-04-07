@@ -32,7 +32,7 @@ import ScholarshipsContext from "../../state-management/scholarships/scholarship
 
 export default function ScholarshipList() {
   const { scholarships } = useContext(ScholarshipsContext);
-  const { filtered, handleFilterChange, search } = useFilterData(scholarships ?? [], "name");
+  const { filtered, handleFilterChange, search } = useFilterData(scholarships ?? [], "title");
 
   return (
     <div className="p-4 mx-8 md:mx-24 lg:mx-32 xl:mx-48">
@@ -45,7 +45,7 @@ export default function ScholarshipList() {
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item) => (
-          <ScholarCard key={item.id} title={item.name} deadline={item.deadline} image={item.thumbnail} featured={false} />
+          <ScholarCard key={item.id} id={item.id} title={item.title} deadline={item.deadline} image={item.thumbnail} featured={false} />
         ))}
       </div>
     </div>

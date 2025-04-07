@@ -4,6 +4,7 @@ import {
   ArrowUpRightIcon,
 } from "@heroicons/react/24/outline";
 import { ClockIcon } from "@heroicons/react/16/solid";
+import { Link } from "react-router-dom";
 
 const InternCard = ({ internship, featured = false }) => {
   const {
@@ -78,21 +79,21 @@ const InternCard = ({ internship, featured = false }) => {
         </div>
 
         <div className="flex justify-between items-center gap-2">
-          <a
-            href={`/internships/${id}`}
+          <Link
+            to={`/internships/${id}`}
             className="px-3 py-1.5 border border-gray-300 rounded-md text-sm hover:bg-gray-50 transition"
           >
             View Details
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={internship.apply_link}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 bg-teal-600 text-white rounded-md text-sm hover:bg-teal-700 flex items-center"
           >
             Apply
             <ArrowUpRightIcon className="w-4 h-4 ml-1" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
