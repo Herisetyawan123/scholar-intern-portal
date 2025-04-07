@@ -37,7 +37,7 @@ export function useScholarships() {
 
 export function useDetailScholarship() {
   const { id } = useParams();
-  const [scholarship, setScholarship] = useState();
+  const [scholarship, setScholarship] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

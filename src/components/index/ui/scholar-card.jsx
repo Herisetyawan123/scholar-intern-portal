@@ -29,9 +29,9 @@ export default function ScholarCard({ id, image, title, deadline, featured }) {
           <Link to={'/scholarships/' + id} className="border cursor-pointer px-4 py-1.5 font-semibold rounded-lg text-sm bg-[#f8fafc] hover:bg-gray-100">
             View Details
           </Link>
-          <button className="bg-blue-600 cursor-pointer font-bold text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 flex items-center gap-1">
+          <Link to={`mailto:admin@beasiswa.com?subject=Daftar Beasiswa: ${encodeURIComponent(title)}&body=Halo, saya tertarik untuk mendaftar beasiswa "${title}". Mohon informasinya lebih lanjut.`} className="bg-blue-600 cursor-pointer font-bold text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 flex items-center gap-1">
             Apply <ArrowUpRightIcon className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

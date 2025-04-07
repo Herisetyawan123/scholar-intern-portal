@@ -57,7 +57,7 @@ export default function ScholarshipDetailPage() {
           Requirements
         </h2>
         <ul className="list-disc list-inside text-gray-700">
-          {scholarship.requirements.map((req, index) => (
+          {scholarship.requirements && scholarship.requirements.map((req, index) => (
             <li key={index}>{req}</li>
           ))}
         </ul>
@@ -65,7 +65,7 @@ export default function ScholarshipDetailPage() {
 
       {/* Registration Link */}
       <a
-        href={scholarship.registration_link}
+        to={`mailto:admin@beasiswa.com?subject=Daftar Beasiswa: ${encodeURIComponent(scholarship.title)}&body=Halo, saya tertarik untuk mendaftar beasiswa "${scholarship.title}". Mohon informasinya lebih lanjut.`}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg transition"

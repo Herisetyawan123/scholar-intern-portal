@@ -69,7 +69,7 @@ export default function InternshipDetail() {
 
       {/* CTA Button */}
       <a
-        href={internship.apply_link}
+        href={`mailto:admin@magang.com?subject=Daftar Magang: ${encodeURIComponent(internship.title)}&body=Halo, saya tertarik untuk mendaftar program magang "${internship.title}". Mohon informasinya lebih lanjut.`}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-white bg-green-700 hover:bg-green-900 px-5 py-2 rounded-lg transition"

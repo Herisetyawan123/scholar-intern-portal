@@ -86,7 +86,7 @@ const InternCard = ({ internship, featured = false }) => {
             View Details
           </Link>
           <Link
-            to={internship.apply_link}
+            to={`mailto:admin@magang.com?subject=Daftar Magang: ${encodeURIComponent(internship.title)}&body=Halo, saya tertarik untuk mendaftar program magang "${internship.title}". Mohon informasinya lebih lanjut.`}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 bg-teal-600 text-white rounded-md text-sm hover:bg-teal-700 flex items-center"
